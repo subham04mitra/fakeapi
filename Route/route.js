@@ -4,9 +4,7 @@ const express = require('express');
 const route = express.Router();
 const home = require('../API/routes/api_route');
 const { request } = require('http');
-route.use('/subham', home);
+route.use('/', home);
 
-route.get('/',(req,res)=>{
-    res.send('hello');
-})
+
 module.exports = route;
