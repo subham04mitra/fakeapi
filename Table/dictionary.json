@@ -1,0 +1,22 @@
+{
+    "user": {
+        "name": {
+            "type": "String"
+        },
+        "email": {
+            "type": "String"
+        },
+        "mobile": {
+            "type": "String"
+        },
+        "address": {
+            "type": "String"
+        },
+        "gender": {
+            "type": "String"
+        },
+        "dob": {
+            "type": "String"
+        }
+    }
+}
