@@ -83,7 +83,7 @@ operation.createNewUser = async (data) => {
 }
 operation.updateUser = async (data, id) => {
     return new Promise(async (resolve, reject) => {
-        console.log(ticket);
+        
         console.log(data);
         let conn = connect();
         let coll = conn.useDb('fakeapi');
