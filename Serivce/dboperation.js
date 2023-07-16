@@ -5,9 +5,11 @@ const axios = require('axios');
 const { log } = require("console");
 const spawn = require('child_process').spawn;
 function connect() {
+  
     const url = "mongodb+srv://technoidkolkata:technoid123@cluster0.iivynkd.mongodb.net/";
     const connection = mongoose.createConnection(url,
         { useNewUrlParser: true, useUnifiedTopology: true })
+     
     return connection;
 }
 let operation = {};
@@ -15,13 +17,17 @@ let operation = {};
 
 
 operation.allUsers = async (page, limit) => {
-    return new Promise(async (resolve, reject) => {
+    return new Promise(async (resolve, reject) => 
+    {
+        
         let skipElements = page != undefined ? (page - 1) * limit : 0;
         let limitTo = limit != undefined ? limit : 20;
         let conn = connect();
         let coll = conn.useDb('fakeapi');
+      
         let user_model = coll.model("users", sch.userSchema());
-        let user_data = await user_model.find({}, { skip: skipElements, limit: limitTo });
+     
+        let user_data = await user_model.find({},{}, { skip: skipElements, limit: limitTo });
         conn.close();
         if (user_data.length != 0) {
             resolve({
@@ -36,7 +42,7 @@ operation.allUsers = async (page, limit) => {
     })
 }
 operation.userById = async (id) => {
-    console.log(order);
+ 
     return new Promise(async (resolve, reject) => {
         let conn = connect();
         let coll = conn.useDb('fakeapi');

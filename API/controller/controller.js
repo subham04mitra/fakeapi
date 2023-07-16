@@ -18,7 +18,7 @@ service.getallUsers = async (req, res) => {
 }
 service.getUsersbyId = async (req, res) => {
 
-    let order = req.params.id;userById
+    let order = req.params.id;
 
     try {
         let response = await db.userById(order);
