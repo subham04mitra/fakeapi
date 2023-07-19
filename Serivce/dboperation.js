@@ -16,24 +16,21 @@ let operation = {};
 
 
 
-operation.allUsers = async (page, limit) => {
+operation.allUsers = async () => {
     return new Promise(async (resolve, reject) => 
     {
         
-        let skipElements = page != undefined ? (page - 1) * limit : 0;
-        let limitTo = limit != undefined ? limit : 20;
+    
         let conn = connect();
         let coll = conn.useDb('fakeapi');
       
         let user_model = coll.model("users", sch.userSchema());
      
-        let user_data = await user_model.find({},{}, { skip: skipElements, limit: limitTo });
+        let user_data = await user_model.find({});
         conn.close();
         if (user_data.length != 0) {
             resolve({
-                Success: true, Data: user_data, pagination: {
-                    page: page != undefined ? page : 1, limit: limit != undefined ? limit : 20
-                }
+                Success: true, Data: user_data
             })
         }
         else {

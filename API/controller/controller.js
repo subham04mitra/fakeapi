@@ -5,10 +5,9 @@ const db = require('../../Serivce/dboperation');
 let service = {};
 
 service.getallUsers = async (req, res) => {
-    let page = req.query.page;
-    let limit = req.query.limit;
+ 
     try {
-        let response = await db.allUsers(page, limit);
+        let response = await db.allUsers();
         if (response) {
             res.json(response);
         }
